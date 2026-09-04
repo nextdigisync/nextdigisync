@@ -44,8 +44,11 @@ function Index() {
         <Stats />
         <Industries />
         <CaseStudy onContact={openChat} />
+        <About />
+        <Contact onAsk={openChat} />
         <ContactCta onAsk={openChat} />
       </main>
+
       <Footer />
       <AskNds open={chatOpen} setOpen={setChatOpen} />
     </div>
