@@ -1,14 +1,33 @@
 import { ArrowRight, Bot, Boxes, Cpu, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { TypeCycle } from "./TypeCycle";
 import { Reveal } from "./Reveal";
 
 const nodes = [
   { icon: Cpu, label: "AI & Intelligence", desc: "Smart assistants & insights" },
   { icon: Workflow, label: "Automation", desc: "Workflows without friction" },
   { icon: Boxes, label: "ERP & Data", desc: "One connected source of truth" },
-  { icon: Bot, label: "Digital Experience", desc: "Web, apps & customer journeys" },
+  { icon: Bot, label: "Digital Experience", desc: "Web, apps & journeys" },
 ];
+
+function Node({
+  icon: Icon,
+  label,
+  desc,
+}: {
+  icon: typeof Cpu;
+  label: string;
+  desc: string;
+}) {
+  return (
+    <div className="w-full rounded-2xl border border-border bg-background p-4 text-center shadow-soft transition-colors hover:border-primary/40">
+      <span className="mx-auto flex size-10 items-center justify-center rounded-xl bg-secondary">
+        <Icon className="size-5 text-primary" />
+      </span>
+      <p className="mt-2.5 text-sm font-semibold">{label}</p>
+      <p className="mt-1 text-xs text-muted-foreground">{desc}</p>
+    </div>
+  );
+}
 
 export function Hero({ onContact, onAsk }: { onContact: () => void; onAsk: () => void }) {
   return (
@@ -29,15 +48,6 @@ export function Hero({ onContact, onAsk }: { onContact: () => void; onAsk: () =>
               Intelligent Solutions. <br className="hidden sm:block" />
               <span className="text-gradient">Real Business Impact</span>
             </h1>
-          </Reveal>
-
-          <Reveal delay={140}>
-            <p className="mt-5 text-sm font-semibold tracking-wide text-muted-foreground md:text-base">
-              Synchronise your business with{" "}
-              <TypeCycle
-                words={["Intelligence.", "Automation.", "Real-time Data.", "Next-Gen ERP."]}
-              />
-            </p>
           </Reveal>
 
           <Reveal delay={200}>
@@ -66,39 +76,33 @@ export function Hero({ onContact, onAsk }: { onContact: () => void; onAsk: () =>
               The NextDigiSync model
             </p>
 
-            <div className="relative mt-6">
-              {/* connector cross */}
+            {/* hub & spoke infographic */}
+            <div className="relative mt-7">
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <div className="h-px w-full bg-border" />
-              </div>
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <div className="h-full w-px bg-border" />
+                <div className="size-56 rounded-full border border-dashed border-primary/30 sm:size-64" />
               </div>
 
-              <div className="relative grid grid-cols-2 gap-4">
-                {nodes.map(({ icon: Icon, label, desc }) => (
-                  <div
-                    key={label}
-                    className="rounded-2xl border border-border bg-background p-4 text-center shadow-soft"
-                  >
-                    <span className="mx-auto flex size-10 items-center justify-center rounded-xl bg-secondary">
-                      <Icon className="size-5 text-primary" />
+              <div className="relative flex flex-col items-center gap-5">
+                <Node {...nodes[0]!} />
+
+                <div className="flex w-full items-center gap-4">
+                  <Node {...nodes[1]!} />
+                  <div className="flex size-24 shrink-0 flex-col items-center justify-center rounded-full bg-gradient-ink text-center shadow-lift ring-8 ring-card sm:size-28">
+                    <span className="font-display text-sm font-bold text-ink-foreground sm:text-base">
+                      Business
                     </span>
-                    <p className="mt-2.5 text-sm font-semibold">{label}</p>
-                    <p className="mt-1 text-xs text-muted-foreground">{desc}</p>
+                    <span className="font-display text-sm font-bold text-ink-foreground sm:text-base">
+                      Growth
+                    </span>
                   </div>
-                ))}
-              </div>
+                  <Node {...nodes[2]!} />
+                </div>
 
-              <div className="pointer-events-none absolute top-1/2 left-1/2 flex size-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-gradient-ink text-center shadow-lift ring-8 ring-card">
-                <span className="font-display text-base font-bold text-ink-foreground">
-                  Business
-                </span>
-                <span className="font-display text-base font-bold text-ink-foreground">Growth</span>
+                <Node {...nodes[3]!} />
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-3 gap-3 border-t border-border pt-5 text-center">
+            <div className="mt-7 grid grid-cols-3 gap-3 border-t border-border pt-5 text-center">
               {[
                 { k: "Sync", v: "Connect" },
                 { k: "Automate", v: "Simplify" },
