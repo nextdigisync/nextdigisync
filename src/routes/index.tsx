@@ -1,24 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { Solutions } from "@/components/site/Solutions";
+import { Stats } from "@/components/site/Stats";
+import { Industries } from "@/components/site/Industries";
+import { CaseStudy } from "@/components/site/CaseStudy";
+import { ContactCta } from "@/components/site/ContactCta";
+import { Footer } from "@/components/site/Footer";
+import { AskNds } from "@/components/site/AskNds";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "NextDigiSync | AI, Automation & ERP for Modern Business";
+const description =
+  "NextDigiSync builds AI chatbots, ERP systems, process automation and digital services that keep every part of your business in sync.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [chatOpen, setChatOpen] = useState(false);
+  const openChat = () => setChatOpen(true);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Navbar onContact={openChat} />
+      <main>
+        <Hero onContact={openChat} onAsk={openChat} />
+        <Solutions />
+        <Stats />
+        <Industries />
+        <CaseStudy onContact={openChat} />
+        <ContactCta onAsk={openChat} />
+      </main>
+      <Footer />
+      <AskNds open={chatOpen} setOpen={setChatOpen} />
     </div>
   );
 }
