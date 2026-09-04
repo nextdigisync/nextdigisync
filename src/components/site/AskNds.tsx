@@ -91,7 +91,7 @@ export function AskNds({ open, setOpen }: { open: boolean; setOpen: (v: boolean)
         /* storage unavailable */
       }
       botSay(
-        `Thanks ${updated.name ?? ""}! Our team will reach out on ${updated.email} within one business day about ${updated.interest}.`,
+        `Thanks ${updated['name'] ?? ""}! Our team will reach out on ${updated['email']} within one business day about ${updated['interest']}.`,
       );
       return;
     }

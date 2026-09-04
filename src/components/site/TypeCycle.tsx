@@ -6,7 +6,7 @@ export function TypeCycle({ words, className = "" }: { words: string[]; classNam
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const current = words[index % words.length];
+    const current = words[index % words.length] ?? "";
     const done = !deleting && text === current;
     const cleared = deleting && text === "";
 
