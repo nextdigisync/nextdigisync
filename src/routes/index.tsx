@@ -6,9 +6,12 @@ import { Solutions } from "@/components/site/Solutions";
 import { Stats } from "@/components/site/Stats";
 import { Industries } from "@/components/site/Industries";
 import { CaseStudy } from "@/components/site/CaseStudy";
+import { About } from "@/components/site/About";
+import { Contact } from "@/components/site/Contact";
 import { ContactCta } from "@/components/site/ContactCta";
 import { Footer } from "@/components/site/Footer";
 import { AskNds } from "@/components/site/AskNds";
+
 
 const title = "NextDigiSync | AI, Automation & ERP for Modern Business";
 const description =
