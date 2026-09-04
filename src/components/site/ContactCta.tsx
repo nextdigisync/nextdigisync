@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 
 export function ContactCta({ onAsk }: { onAsk: () => void }) {
   return (
-    <section id="contact" className="py-20">
+    <section id="get-started" className="py-20">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <div className="grid-lines relative overflow-hidden rounded-3xl bg-gradient-ink px-8 py-14 text-center shadow-lift md:px-16">
