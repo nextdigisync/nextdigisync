@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import { TypeCycle } from "./TypeCycle";
 import { Reveal } from "./Reveal";
 
-const petals = [
-  { icon: Cpu, label: "AI & Intelligence", pos: "left-1/2 top-0 -translate-x-1/2" },
-  { icon: Workflow, label: "Automation & Workflows", pos: "right-0 top-1/2 -translate-y-1/2" },
-  { icon: Boxes, label: "ERP & Data", pos: "left-1/2 bottom-0 -translate-x-1/2" },
-  { icon: Bot, label: "Digital Experience", pos: "left-0 top-1/2 -translate-y-1/2" },
+const nodes = [
+  { icon: Cpu, label: "AI & Intelligence", desc: "Smart assistants & insights" },
+  { icon: Workflow, label: "Automation", desc: "Workflows without friction" },
+  { icon: Boxes, label: "ERP & Data", desc: "One connected source of truth" },
+  { icon: Bot, label: "Digital Experience", desc: "Web, apps & customer journeys" },
 ];
 
 export function Hero({ onContact, onAsk }: { onContact: () => void; onAsk: () => void }) {
@@ -26,22 +26,28 @@ export function Hero({ onContact, onAsk }: { onContact: () => void; onAsk: () =>
 
           <Reveal delay={80}>
             <h1 className="mt-6 text-4xl leading-[1.08] font-extrabold sm:text-5xl lg:text-6xl">
-              Synchronise your <br className="hidden sm:block" />
-              business with{" "}
-              <TypeCycle
-                words={["Intelligence.", "Automation.", "Real-time Data.", "Next-Gen ERP."]}
-              />
+              Intelligent Solutions. <br className="hidden sm:block" />
+              <span className="text-gradient">Real Business Impact</span>
             </h1>
           </Reveal>
 
-          <Reveal delay={160}>
-            <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
+          <Reveal delay={140}>
+            <p className="mt-5 text-sm font-semibold tracking-wide text-muted-foreground md:text-base">
+              Synchronise your business with{" "}
+              <TypeCycle
+                words={["Intelligence.", "Automation.", "Real-time Data.", "Next-Gen ERP."]}
+              />
+            </p>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
               NextDigiSync helps businesses streamline operations, delight customers and drive
               measurable growth with AI-powered solutions, ERP systems and process automation.
             </p>
           </Reveal>
 
-          <Reveal delay={240}>
+          <Reveal delay={260}>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button size="lg" onClick={onContact} className="group">
                 Explore Solutions
@@ -55,22 +61,54 @@ export function Hero({ onContact, onAsk }: { onContact: () => void; onAsk: () =>
         </div>
 
         <Reveal delay={200} className="relative">
-          <div className="relative mx-auto aspect-square w-full max-w-lg">
-            <div className="absolute inset-6 rounded-full border border-dashed border-border" />
-            <div className="float-slow absolute inset-0">
-              {petals.map(({ icon: Icon, label, pos }) => (
-                <div
-                  key={label}
-                  className={`absolute ${pos} w-40 rounded-2xl border border-border bg-card p-4 text-center shadow-soft transition-transform duration-300 hover:-translate-y-1`}
-                >
-                  <Icon className="mx-auto size-5 text-primary" />
-                  <p className="mt-2 text-xs font-semibold">{label}</p>
+          <div className="mx-auto w-full max-w-lg rounded-3xl border border-border bg-card p-6 shadow-lift md:p-8">
+            <p className="text-center text-xs font-semibold tracking-[0.25em] text-muted-foreground uppercase">
+              The NextDigiSync model
+            </p>
+
+            <div className="relative mt-6">
+              {/* connector cross */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <div className="h-px w-full bg-border" />
+              </div>
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <div className="h-full w-px bg-border" />
+              </div>
+
+              <div className="relative grid grid-cols-2 gap-4">
+                {nodes.map(({ icon: Icon, label, desc }) => (
+                  <div
+                    key={label}
+                    className="rounded-2xl border border-border bg-background p-4 text-center shadow-soft"
+                  >
+                    <span className="mx-auto flex size-10 items-center justify-center rounded-xl bg-secondary">
+                      <Icon className="size-5 text-primary" />
+                    </span>
+                    <p className="mt-2.5 text-sm font-semibold">{label}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pointer-events-none absolute top-1/2 left-1/2 flex size-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-gradient-ink text-center shadow-lift ring-8 ring-card">
+                <span className="font-display text-base font-bold text-ink-foreground">
+                  Business
+                </span>
+                <span className="font-display text-base font-bold text-ink-foreground">Growth</span>
+              </div>
+            </div>
+
+            <div className="mt-6 grid grid-cols-3 gap-3 border-t border-border pt-5 text-center">
+              {[
+                { k: "Sync", v: "Connect" },
+                { k: "Automate", v: "Simplify" },
+                { k: "Grow", v: "Scale" },
+              ].map((s) => (
+                <div key={s.k}>
+                  <p className="text-sm font-semibold text-primary">{s.k}</p>
+                  <p className="text-xs text-muted-foreground">{s.v}</p>
                 </div>
               ))}
-            </div>
-            <div className="absolute top-1/2 left-1/2 flex size-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-gradient-ink text-center shadow-lift">
-              <span className="font-display text-lg font-bold text-ink-foreground">Business</span>
-              <span className="font-display text-lg font-bold text-ink-foreground">Growth</span>
             </div>
           </div>
         </Reveal>

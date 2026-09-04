@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { label: "Solutions", href: "#solutions" },
-  { label: "Industries", href: "#industries" },
-  { label: "Work", href: "#work" },
-  { label: "Impact", href: "#impact" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "About Us", href: "#about" },
+  { label: "Contact Us", href: "#contact" },
 ];
+
 
 export function Navbar({ onContact }: { onContact: () => void }) {
   const [scrolled, setScrolled] = useState(false);

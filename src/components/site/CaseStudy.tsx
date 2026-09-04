@@ -2,25 +2,24 @@ import { Check, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const outcomes = [
-  "45% increase in operational efficiency",
-  "30% reduction in inventory holding costs",
-  "Real-time dashboards for better decisions",
+  "62% faster order-to-delivery cycle across 140 stores",
+  "3x growth in online revenue within two quarters",
+  "Single view of stock across web, app and stores",
 ];
 
 export function CaseStudy({ onContact }: { onContact: () => void }) {
   return (
-    <section id="work" className="bg-surface py-24">
+    <section id="portfolio" className="bg-surface py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-8 lg:grid-cols-2 lg:items-center">
         <Reveal>
-          <p className="text-xs font-semibold tracking-[0.25em] text-primary uppercase">
-            Case study
-          </p>
+          <p className="text-xs font-semibold tracking-[0.25em] text-primary uppercase">Portfolio</p>
           <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Manufacturing ERP Implementation
+            Omnichannel Retail Automation Platform
           </h2>
           <p className="mt-4 text-muted-foreground">
-            A leading manufacturing company streamlined its operations and improved visibility with
-            a modular ERP integrated across production, inventory, finance and sales.
+            A fast-growing retail chain unified its online store, mobile app and 140 physical outlets
+            on one automated platform — with AI-assisted demand forecasting and a support chatbot
+            handling first-line customer queries.
           </p>
           <ul className="mt-7 space-y-3">
             {outcomes.map((o) => (
@@ -31,10 +30,10 @@ export function CaseStudy({ onContact }: { onContact: () => void }) {
             ))}
           </ul>
           <blockquote className="mt-8 rounded-2xl border border-border bg-card p-5 text-sm italic text-muted-foreground">
-            “NextDigiSync transformed the way we operate. We now make faster decisions with accurate
-            data and improved efficiency.”
+            “NextDigiSync connected channels we had spent years trying to join. Stock, orders and
+            customer support finally speak the same language.”
             <footer className="mt-3 text-xs font-semibold not-italic text-foreground">
-              — COO, Leading Manufacturing Company
+              — Head of Digital, National Retail Chain
             </footer>
           </blockquote>
         </Reveal>
@@ -47,8 +46,8 @@ export function CaseStudy({ onContact }: { onContact: () => void }) {
             </div>
             <div className="mt-5 grid grid-cols-2 gap-4">
               {[
-                { k: "Total Orders", v: "5,320", d: "+18.5%" },
-                { k: "On-time Delivery", v: "96%", d: "+8.2%" },
+                { k: "Monthly Orders", v: "82,400", d: "+64%" },
+                { k: "Support Auto-resolved", v: "71%", d: "+41%" },
               ].map((c) => (
                 <div key={c.k} className="rounded-2xl bg-ink-foreground/8 p-4">
                   <p className="text-xs text-ink-foreground/60">{c.k}</p>
@@ -59,9 +58,9 @@ export function CaseStudy({ onContact }: { onContact: () => void }) {
             </div>
 
             <div className="mt-5 rounded-2xl bg-ink-foreground/8 p-4">
-              <p className="text-xs text-ink-foreground/60">Production Output</p>
+              <p className="text-xs text-ink-foreground/60">Online Revenue Growth</p>
               <div className="mt-4 flex h-32 items-end gap-2">
-                {[38, 52, 45, 66, 74, 88].map((h, i) => (
+                {[32, 44, 51, 63, 79, 92].map((h, i) => (
                   <div
                     key={i}
                     className="flex-1 rounded-t-md bg-gradient-brand"
